@@ -839,7 +839,155 @@
       margin-top: 2px;
     }
 
-    /* ---------------- RESPONSIVE STYLES ---------------- */
+    /* ---------------- MOBILE & RESPONSIVE STYLES ---------------- */
+    .nav-mobile-btn {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.15);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      margin-left: 2px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .nav-mobile-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    /* Mobile Drawer */
+    .mobile-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(7, 23, 82, 0.45);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 110;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+
+    .mobile-drawer-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 300px;
+      max-width: 86vw;
+      background: #FFFFFF;
+      z-index: 120;
+      box-shadow: -8px 0 32px rgba(7, 23, 82, 0.22);
+      transform: translateX(100%);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      padding: 24px 20px;
+      padding-top: max(24px, env(safe-area-inset-top, 0px));
+      padding-bottom: max(24px, env(safe-area-inset-bottom, 0px));
+    }
+
+    .mobile-drawer.active {
+      transform: translateX(0);
+    }
+
+    .mobile-drawer-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 16px;
+    }
+
+    .mobile-drawer-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      color: var(--navy-primary);
+    }
+
+    .mobile-drawer-close {
+      background: #F0F4FA;
+      border: none;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--navy-primary);
+      font-size: 16px;
+      transition: background 0.15s ease;
+    }
+
+    .mobile-drawer-close:hover {
+      background: #E2EAF5;
+    }
+
+    .mobile-drawer-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .mobile-menu-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 13px 14px;
+      border-radius: 14px;
+      background: transparent;
+      border: none;
+      text-align: left;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.18s ease, color 0.18s ease;
+    }
+
+    .mobile-menu-item:hover, .mobile-menu-item:active {
+      background: #F0F5FC;
+      color: var(--navy-primary);
+    }
+
+    .mobile-menu-item svg {
+      color: var(--navy-primary);
+      flex-shrink: 0;
+    }
+
+    .mobile-menu-item.highlight svg {
+      color: var(--red-accent);
+    }
+
+    .mobile-drawer-bottom {
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    /* Mobile Floating Sticky Quick Bar (< 768px) */
+    .mobile-quick-bar {
+      display: none;
+    }
+
     @media (max-width: 900px) {
       .hero {
         background-position: right 18% center;
@@ -871,26 +1019,218 @@
       }
     }
 
+    @media (max-width: 768px) {
+      .mobile-quick-bar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.94);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-top: 1px solid var(--line);
+        padding: 10px 16px;
+        padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+        z-index: 40;
+        box-shadow: 0 -4px 20px rgba(11, 27, 107, 0.08);
+      }
+      
+      .quick-btn {
+        flex: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-family: 'Inter', sans-serif;
+        font-size: 13.5px;
+        font-weight: 700;
+        padding: 12px 14px;
+        border-radius: 9999px;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        transition: transform 0.15s ease, background 0.15s ease;
+      }
+      
+      .quick-btn-call {
+        background: #F0F4FA;
+        color: var(--navy-primary);
+        border: 1.5px solid var(--card-border);
+      }
+      
+      .quick-btn-call svg {
+        color: var(--red-accent);
+      }
+      
+      .quick-btn-book {
+        background: var(--navy-primary);
+        color: #FFFFFF;
+        box-shadow: 0 4px 14px rgba(11, 27, 107, 0.25);
+      }
+
+      .site-footer {
+        padding-bottom: calc(75px + env(safe-area-inset-bottom, 0px));
+      }
+    }
+
     @media (max-width: 640px) {
+      .wrap {
+        padding: 0 16px;
+      }
+      .logo svg {
+        max-width: 132px;
+        height: auto;
+      }
+      .pill-nav {
+        padding: 4px 6px;
+      }
       .pill-nav .nav-link {
         display: none;
       }
-      .pill-nav {
-        padding: 4px;
+      .nav-mobile-btn {
+        display: flex;
+      }
+      .nav-cta {
+        padding: 8px 14px;
+        font-size: 13px;
+        margin-left: 2px;
+      }
+      .hero {
+        padding: 98px 0 50px;
+        min-height: auto;
+        background-position: right 12% bottom;
+        background-image: 
+          linear-gradient(180deg, 
+            rgba(235, 242, 250, 0.98) 0%, 
+            rgba(235, 242, 250, 0.94) 56%, 
+            rgba(235, 242, 250, 0.35) 86%, 
+            rgba(235, 242, 250, 0.1) 100%
+          ), 
+          url("img/hero.png");
+      }
+      .hero-badge {
+        font-size: 11px;
+        letter-spacing: 0.05em;
+        margin-bottom: 14px;
       }
       .hero-title {
-        font-size: 38px;
+        font-size: clamp(32px, 8.6vw, 40px);
+        line-height: 1.14;
+        margin-bottom: 16px;
+        letter-spacing: -0.025em;
+      }
+      .hero-lead {
+        font-size: 15.5px;
+        line-height: 1.55;
+        margin-bottom: 24px;
+      }
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+      }
+      .hero-actions .btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        padding: 14px 20px;
+      }
+      .services-section {
+        padding: 30px 0 20px;
       }
       .services-wrapper-card {
-        padding: 36px 20px 32px;
-        border-radius: 26px;
+        padding: 32px 16px 26px;
+        border-radius: 24px;
+      }
+      .services-header {
+        margin-bottom: 32px;
+      }
+      .services-main-title {
+        font-size: 28px;
+      }
+      .services-sub-lead {
+        font-size: 15px;
       }
       .service-card {
-        padding: 26px 22px;
+        padding: 24px 18px;
+        border-radius: 20px;
+      }
+      .service-title {
+        font-size: 20px;
+      }
+      .service-desc {
+        font-size: 14.5px;
+        margin-bottom: 16px;
+      }
+      .service-list li {
+        font-size: 14px;
+      }
+      .service-image-panel {
+        min-height: 210px;
+        border-radius: 20px;
+      }
+      .cta-section {
+        padding: 10px 0 16px;
+      }
+      .cta-banner {
+        padding: 28px 18px;
+        border-radius: 22px;
+      }
+      .cta-title {
+        font-size: 22px;
+      }
+      .cta-lead {
+        font-size: 14.5px;
+      }
+      .btn-banner-white {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        padding: 14px 20px;
+      }
+      .modal-card {
+        padding: 26px 18px 20px;
+        border-radius: 22px;
+        width: 95%;
+        max-height: 90vh;
+      }
+      .modal-title {
+        font-size: 22px;
+      }
+      .days-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+      }
+      .date-chip {
+        padding: 6px 3px;
+        font-size: 11.5px;
+      }
+      .date-chip b {
+        font-size: 16px;
+      }
+      .times-flex {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+      }
+      .time-chip {
+        padding: 8px 4px;
+        font-size: 12px;
+        text-align: center;
+      }
+      .quick-contact-strip {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 12px 14px;
       }
       .footer-content {
         flex-direction: column;
         align-items: flex-start;
+        gap: 12px;
       }
     }
 
@@ -994,9 +1334,51 @@
           Contact us
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
         </button>
+        <button type="button" class="nav-mobile-btn" onclick="toggleMobileMenu()" aria-label="Open mobile navigation menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
       </nav>
     </div>
   </header>
+
+  <!-- Mobile Drawer Backdrop & Menu -->
+  <div class="mobile-drawer-overlay" id="mobileDrawerOverlay" onclick="toggleMobileMenu()"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-top">
+      <div class="mobile-drawer-brand">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#D91F2E"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        <span>VITALIS WOUND CARE</span>
+      </div>
+      <button type="button" class="mobile-drawer-close" onclick="toggleMobileMenu()" aria-label="Close menu">✕</button>
+    </div>
+    <nav class="mobile-drawer-menu">
+      <button type="button" class="mobile-menu-item" onclick="toggleMobileMenu(); openModal('aboutModal');">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        <span>About us</span>
+      </button>
+      <a href="#services" class="mobile-menu-item" onclick="toggleMobileMenu();">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+        <span>Services & What We Do</span>
+      </a>
+      <button type="button" class="mobile-menu-item" onclick="toggleMobileMenu(); openModal('approachModal');">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+        <span>Our Clinical Approach</span>
+      </button>
+      <a href="tel:7739617571" class="mobile-menu-item highlight">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>
+        <span>Call 773-961-7571</span>
+      </a>
+    </nav>
+    <div class="mobile-drawer-bottom">
+      <button type="button" class="btn btn-navy" style="width: 100%; justify-content: center;" onclick="toggleMobileMenu(); openModal('bookModal');">
+        Book a Consultation
+      </button>
+    </div>
+  </aside>
 
   <!-- ================= HERO SECTION ================= -->
   <main id="top">
@@ -1531,6 +1913,36 @@
         });
       }, 300);
     })();
+
+    // Mobile Drawer Toggle Function
+    function toggleMobileMenu() {
+      var drawer = document.getElementById('mobileDrawer');
+      var overlay = document.getElementById('mobileDrawerOverlay');
+      if (drawer && overlay) {
+        var isOpen = drawer.classList.contains('active');
+        if (isOpen) {
+          drawer.classList.remove('active');
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+        } else {
+          drawer.classList.add('active');
+          overlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      }
+    }
   </script>
+
+  <!-- Mobile Floating Sticky Bottom Quick Bar (< 768px) -->
+  <div class="mobile-quick-bar" id="mobileQuickBar">
+    <a href="tel:7739617571" class="quick-btn quick-btn-call">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>
+      Call Clinic
+    </a>
+    <button type="button" class="quick-btn quick-btn-book" onclick="openModal('bookModal')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      Book Home Visit
+    </button>
+  </div>
 </body>
 </html>
