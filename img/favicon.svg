@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  <!-- Background badge for high contrast on both dark and light browser tabs -->
+  <circle cx="32" cy="32" r="30" fill="#FFFFFF" stroke="#0B1B6B" stroke-width="2.5"/>
+  
+  <!-- Left ECG pulse wave -->
+  <path d="M7 32h10l3-6 4 13 3-9 3 2h3" fill="none" stroke="#0B1B6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Right ECG pulse wave -->
+  <path d="M40 32h3l3-6 4 13 3-9 3 2h8" fill="none" stroke="#0B1B6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Red Heart in center -->
+  <path d="M32 46.5C32 46.5 19 38 19 28.5C19 23.2 23 19.5 27.5 19.5C30.5 19.5 32 21.5 32 21.5C32 21.5 33.5 19.5 36.5 19.5C41 19.5 45 23.2 45 28.5C45 38 32 46.5 32 46.5Z" fill="#D91F2E" filter="url(#shadow)"/>
+  
+  <!-- White ECG heartbeat line across the center of the heart -->
+  <path d="M23 30.5h3.5l2.5-5 3.5 11 3-7.5 2 1.5h3" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Vitalis Wound Care LLC | Home wound care in Chicago</title>
+  <meta name="description" content="Specialized mobile wound care in Chicago, Illinois. Delivering compassionate, high-quality clinical healing directly to your home.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23FFFFFF' stroke='%230B1B6B' stroke-width='2.5'/%3E%3Cpath d='M7 32h10l3-6 4 13 3-9 3 2h3' fill='none' stroke='%230B1B6B' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M40 32h3l3-6 4 13 3-9 3 2h8' fill='none' stroke='%230B1B6B' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M32 46.5C32 46.5 19 38 19 28.5C19 23.2 23 19.5 27.5 19.5C30.5 19.5 32 21.5 32 21.5C32 21.5 33.5 19.5 36.5 19.5C41 19.5 45 23.2 45 28.5C45 38 32 46.5 32 46.5Z' fill='%23D91F2E'/%3E%3Cpath d='M23 30.5h3.5l2.5-5 3.5 11 3-7.5 2 1.5h3' fill='none' stroke='%23FFFFFF' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-page: #F6F9FD;
+      --navy-primary: #0B1B6B;
+      --navy-dark: #071752;
+      --red-accent: #D91F2E;
+      --red-hover: #BF1523;
+      --ink: #1B2350;
+      --lead-color: #4A587A;
+      --muted: #6B7898;
+      --card-bg: #FFFFFF;
+      --card-border: #E3ECF8;
+      --line: #E2E8F4;
+      --badge-tint: #EDF3FC;
+      --bullet-blue: #1A56DB;
+      --shadow-sm: 0 4px 16px rgba(11, 27, 107, 0.04);
+      --shadow-md: 0 10px 30px rgba(11, 27, 107, 0.07);
+      --shadow-lg: 0 20px 50px rgba(11, 27, 107, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--ink);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      color: var(--navy-primary);
+      line-height: 1.15;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ---------------- HEADER & NAV ---------------- */
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 30;
+      padding: 22px 0;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .logo:hover {
+      opacity: 0.9;
+    }
+
+    .pill-nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--navy-dark);
+      padding: 5px 6px 5px 22px;
+      border-radius: 9999px;
+      box-shadow: 0 8px 24px rgba(7, 23, 82, 0.28);
+    }
+
+    .nav-link {
+      background: transparent;
+      border: none;
+      color: #FFFFFF;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 8px 12px;
+      cursor: pointer;
+      opacity: 0.92;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav-link:hover {
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+
+    .nav-cta {
+      background: var(--red-accent);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 9999px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 9px 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      margin-left: 6px;
+      box-shadow: 0 4px 12px rgba(217, 31, 46, 0.35);
+      transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--red-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(217, 31, 46, 0.45);
+    }
+
+    /* ---------------- HERO SECTION ---------------- */
+    .hero {
+      position: relative;
+      background-color: #EBF2FA;
+      background-image: 
+        linear-gradient(90deg, 
+          rgba(235, 242, 250, 0.98) 0%, 
+          rgba(235, 242, 250, 0.92) 46%, 
+          rgba(235, 242, 250, 0.2) 68%, 
+          rgba(235, 242, 250, 0) 100%
+        ), 
+        url("img/hero.png");
+      background-repeat: no-repeat;
+      background-position: right center;
+      background-size: cover;
+      min-height: 640px;
+      padding: 136px 0 90px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-container {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content {
+      max-width: 580px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--navy-primary);
+      font-family: 'Inter', sans-serif;
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .hero-badge-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--navy-primary);
+    }
+
+    .hero-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(42px, 5.2vw, 68px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.035em;
+      color: var(--navy-primary);
+      margin-bottom: 22px;
+    }
+
+    .hero-lead {
+      font-family: 'Inter', sans-serif;
+      font-size: 17.5px;
+      line-height: 1.62;
+      color: var(--lead-color);
+      margin-bottom: 34px;
+      max-width: 48ch;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 15px 32px;
+      border-radius: 9999px;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.22s ease;
+      line-height: 1;
+    }
+
+    .btn-navy {
+      background: var(--navy-primary);
+      color: #FFFFFF;
+      border: 1.5px solid var(--navy-primary);
+      box-shadow: 0 8px 24px rgba(11, 27, 107, 0.24);
+    }
+
+    .btn-navy:hover {
+      background: var(--navy-dark);
+      border-color: var(--navy-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(11, 27, 107, 0.32);
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(4px);
+      color: var(--navy-primary);
+      border: 1.5px solid var(--navy-primary);
+      box-shadow: 0 4px 14px rgba(11, 27, 107, 0.06);
+    }
+
+    .btn-outline:hover {
+      background: var(--navy-primary);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(11, 27, 107, 0.2);
+    }
+
+    /* ---------------- "WHAT WE DO" SECTION ---------------- */
+    .services-section {
+      padding: 56px 0 36px;
+    }
+
+    .services-wrapper-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 36px;
+      padding: 56px 44px 48px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .services-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--badge-tint);
+      color: var(--navy-primary);
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 16px 6px 8px;
+      border-radius: 9999px;
+      margin-bottom: 16px;
+    }
+
+    .pill-dot-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--navy-primary);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .services-main-title {
+      font-size: clamp(32px, 3.8vw, 44px);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-bottom: 12px;
+      color: var(--navy-primary);
+    }
+
+    .services-sub-lead {
+      color: var(--lead-color);
+      font-size: 16.5px;
+      max-width: 58ch;
+      margin: 0 auto;
+      line-height: 1.55;
+    }
+
+    /* Alternating Service Rows */
+    .service-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: stretch;
+      margin-bottom: 38px;
+    }
+
+    .service-row.reverse .service-card {
+      order: 2;
+    }
+
+    .service-row.reverse .service-image-panel {
+      order: 1;
+    }
+
+    .service-card {
+      background: #FFFFFF;
+      border: 1.5px solid var(--card-border);
+      border-radius: 22px;
+      padding: 34px 36px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .service-card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--navy-primary);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      box-shadow: 0 4px 12px rgba(11, 27, 107, 0.18);
+    }
+
+    .service-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--navy-primary);
+      margin-bottom: 8px;
+      letter-spacing: -0.015em;
+    }
+
+    .service-desc {
+      color: var(--lead-color);
+      font-size: 15px;
+      line-height: 1.55;
+      margin-bottom: 20px;
+    }
+
+    .service-list {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    .service-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      font-size: 14.5px;
+      color: #313D5E;
+      line-height: 1.45;
+    }
+
+    .service-list li::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--bullet-blue);
+      flex-shrink: 0;
+      position: relative;
+      top: -2px;
+    }
+
+    .service-image-panel {
+      border-radius: 22px;
+      overflow: hidden;
+      min-height: 310px;
+      background: #D9E3F0;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+
+    .service-image-panel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .service-image-panel:hover img {
+      transform: scale(1.03);
+    }
+
+    /* ---------------- CTA BANNER ---------------- */
+    .cta-section {
+      padding: 16px 0 24px;
+    }
+
+    .cta-banner {
+      background: var(--navy-dark);
+      color: #FFFFFF;
+      border-radius: 26px;
+      padding: 38px 46px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      box-shadow: 0 16px 40px rgba(7, 23, 82, 0.25);
+    }
+
+    .cta-title {
+      color: #FFFFFF;
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.015em;
+    }
+
+    .cta-lead {
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 15.5px;
+      line-height: 1.5;
+    }
+
+    .btn-banner-white {
+      background: #FFFFFF;
+      color: var(--navy-primary);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 13px 30px;
+      border-radius: 9999px;
+      text-decoration: none;
+      white-space: nowrap;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn-banner-white:hover {
+      background: #F4F7FC;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+    }
+
+    /* ---------------- FOOTER ---------------- */
+    .site-footer {
+      padding: 16px 0 40px;
+      border-top: 1px solid var(--line);
+      margin-top: 16px;
+    }
+
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 14px;
+      color: var(--muted);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-brand {
+      font-weight: 700;
+      color: var(--navy-primary);
+      margin-right: 12px;
+    }
+
+    .footer-contact {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--lead-color);
+      transition: color 0.18s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--navy-primary);
+    }
+
+    .footer-link svg {
+      color: var(--red-accent);
+    }
+
+    /* ---------------- MODAL SYSTEM ---------------- */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 24, 88, 0.52);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 100;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-card {
+      background: #FFFFFF;
+      border-radius: 28px;
+      max-width: 660px;
+      width: 100%;
+      max-height: 88vh;
+      overflow-y: auto;
+      padding: 36px 40px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      transform: translateY(20px) scale(0.98);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .modal-overlay.active .modal-card {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      background: #F0F4FA;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--navy-primary);
+      font-size: 18px;
+      transition: background 0.18s ease, transform 0.18s ease;
+    }
+
+    .modal-close-btn:hover {
+      background: #E2EAF5;
+      transform: scale(1.06);
+    }
+
+    .modal-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--navy-primary);
+      margin-bottom: 8px;
+    }
+
+    .modal-subtitle {
+      color: var(--lead-color);
+      font-size: 15px;
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    .quick-contact-strip {
+      background: #F0F5FC;
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .quick-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--navy-primary);
+    }
+
+    .quick-contact-item svg {
+      color: var(--red-accent);
+    }
+
+    /* Booking Form Controls */
+    .step-label {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy-primary);
+      margin: 18px 0 10px;
+      display: block;
+    }
+
+    .days-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .date-chip, .time-chip {
+      background: #F4F7FC;
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      padding: 8px 6px;
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      color: var(--ink);
+      transition: all 0.18s ease;
+      line-height: 1.25;
+    }
+
+    .date-chip b {
+      display: block;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy-primary);
+      margin: 2px 0;
+    }
+
+    .date-chip:hover, .time-chip:hover {
+      border-color: var(--navy-primary);
+      background: #FFFFFF;
+    }
+
+    .date-chip[aria-pressed="true"], .time-chip[aria-pressed="true"] {
+      background: var(--navy-primary) !important;
+      color: #FFFFFF !important;
+      border-color: var(--navy-primary) !important;
+    }
+
+    .date-chip[aria-pressed="true"] b {
+      color: #FFFFFF !important;
+    }
+
+    .times-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .time-chip {
+      padding: 8px 14px;
+      font-size: 13.5px;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      padding: 11px 14px;
+      border-radius: 12px;
+      border: 1.5px solid var(--line);
+      background: #F9FAFD;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.18s ease, background 0.18s ease;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--navy-primary);
+      background: #FFFFFF;
+    }
+
+    .form-textarea {
+      min-height: 70px;
+      resize: vertical;
+    }
+
+    .form-error {
+      color: var(--red-accent);
+      font-size: 13.5px;
+      font-weight: 500;
+      min-height: 20px;
+      margin: 10px 0;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--red-accent);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 9999px;
+      padding: 14px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(217, 31, 46, 0.35);
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-submit:hover {
+      background: var(--red-hover);
+      transform: translateY(-1px);
+    }
+
+    .booking-summary {
+      background: #F0F5FC;
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin: 16px 0;
+      display: grid;
+      gap: 6px;
+      font-size: 14.5px;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .summary-label {
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .summary-val {
+      font-weight: 600;
+      color: var(--navy-primary);
+      text-align: right;
+    }
+
+    /* Modal Info Content */
+    .info-modal-card p {
+      color: var(--lead-color);
+      margin-bottom: 14px;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: #F7FAFE;
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 14px 16px;
+    }
+
+    .feature-item-icon {
+      color: var(--red-accent);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ---------------- RESPONSIVE STYLES ---------------- */
+    @media (max-width: 900px) {
+      .hero {
+        background-position: right 18% center;
+        padding: 110px 0 60px;
+      }
+      .hero-container {
+        grid-template-columns: 1fr;
+      }
+      .hero-content {
+        max-width: 100%;
+      }
+      .service-row {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+      .service-row.reverse .service-card {
+        order: 1;
+      }
+      .service-row.reverse .service-image-panel {
+        order: 2;
+      }
+      .service-image-panel {
+        min-height: 230px;
+      }
+      .cta-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 34px 28px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .pill-nav .nav-link {
+        display: none;
+      }
+      .pill-nav {
+        padding: 4px;
+      }
+      .hero-title {
+        font-size: 38px;
+      }
+      .services-wrapper-card {
+        padding: 36px 20px 32px;
+        border-radius: 26px;
+      }
+      .service-card {
+        padding: 26px 22px;
+      }
+      .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= TOP HEADER ================= -->
+  <header>
+    <div class="wrap nav-container">
+      <a class="logo" href="#top" aria-label="Vitalis Wound Care LLC home">
+        <svg width="150" height="42" viewBox="0 0 150 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Left pulse line -->
+          <path d="M4 18H36L41 7L48 29L53 12L58 21H64" stroke="#0B1B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Right pulse line -->
+          <path d="M86 21H92L97 12L102 29L109 7L114 18H146" stroke="#0B1B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Red heart in center -->
+          <path d="M75 26C75 26 62 18.5 62 12C62 8.6 64.6 6 68.2 6C70.8 6 73.2 7.4 75 9.5C76.8 7.4 79.2 6 81.8 6C85.4 6 88 8.6 88 12C88 18.5 75 26 75 26Z" fill="#D91F2E"/>
+          <!-- Centered text below -->
+          <text x="75" y="38" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="800" letter-spacing="1.4" fill="#D91F2E">VITALIS WOUND CARE LLC</text>
+        </svg>
+      </a>
+
+      <!-- Navigation Pill -->
+      <nav class="pill-nav" aria-label="Main Navigation">
+        <button type="button" class="nav-link" onclick="openModal('aboutModal')">About us</button>
+        <a href="#services" class="nav-link">Services</a>
+        <button type="button" class="nav-link" onclick="openModal('approachModal')">Our approach</button>
+        <button type="button" class="nav-cta" onclick="openModal('bookModal')">
+          Contact us
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="hero-badge-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </span>
+            <span>Expert wound care for every recovery</span>
+          </div>
+          <h1 class="hero-title">Healing that stays close to home.</h1>
+          <p class="hero-lead">Specialized wound care with compassionate support, clear guidance, and a care plan built around your comfort and progress.</p>
+          <div class="hero-actions">
+            <button type="button" class="btn btn-navy" onclick="openModal('bookModal')">Book a consultation</button>
+            <a href="#services" class="btn btn-outline">See our services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= WHAT WE DO ================= -->
+    <section class="services-section" id="services">
+      <div class="wrap">
+        <div class="services-wrapper-card">
+          <div class="services-header">
+            <div class="section-pill">
+              <span class="pill-dot-icon">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#ffffff"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              </span>
+              <span>What we do</span>
+            </div>
+            <h2 class="services-main-title">What we do</h2>
+            <p class="services-sub-lead">Every plan is built around the patient, from the first evaluation through healing and prevention.</p>
+          </div>
+
+          <!-- Service 1: Chronic Wound Management -->
+          <div class="service-row">
+            <div class="service-card">
+              <div class="service-card-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="#ffffff"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              </div>
+              <h3 class="service-title">Chronic wound management</h3>
+              <p class="service-desc">Comprehensive, ongoing care for wounds that need long-term attention and monitoring.</p>
+              <ul class="service-list">
+                <li>Comprehensive wound evaluation and treatment initiation</li>
+                <li>Sharp debridement</li>
+                <li>Collagen, cellular and tissue-based products (skin substitutes)</li>
+                <li>Negative pressure wound therapy (Wound VAC)</li>
+                <li>Ultrasonic misting</li>
+                <li>Offloading for diabetic foot ulcers</li>
+              </ul>
+            </div>
+            <div class="service-image-panel">
+              <img src="img/chronic.jpg" alt="Chronic wound care management at home" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Service 2: Pain Management -->
+          <div class="service-row reverse">
+            <div class="service-card">
+              <div class="service-card-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="#ffffff"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              </div>
+              <h3 class="service-title">Pain management</h3>
+              <p class="service-desc">Patient-centered strategies to reduce discomfort and support a more comfortable recovery.</p>
+              <ul class="service-list">
+                <li>Effective pain control strategies tailored to patient needs</li>
+              </ul>
+            </div>
+            <div class="service-image-panel">
+              <img src="img/pain.jpg" alt="Patient pain management and recovery support" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Service 3: Assessment and Documentation -->
+          <div class="service-row">
+            <div class="service-card">
+              <div class="service-card-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="#ffffff"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+              </div>
+              <h3 class="service-title">Assessment and documentation</h3>
+              <p class="service-desc">Thorough tracking and clinical evaluation to guide treatment decisions and monitor progress.</p>
+              <ul class="service-list">
+                <li>Infection management</li>
+                <li>Wound measurements and documentation</li>
+                <li>Vascular screening</li>
+                <li>Customized dressing selection</li>
+                <li>Wound supply procurement</li>
+                <li>Advanced dressings</li>
+              </ul>
+            </div>
+            <div class="service-image-panel">
+              <img src="img/docu.jpg" alt="Clinical assessment, wound metrics, and medical documentation" loading="lazy">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CTA BANNER ================= -->
+    <section class="cta-section">
+      <div class="wrap">
+        <div class="cta-banner">
+          <div class="cta-banner-text">
+            <h2 class="cta-title">Ready to start your care journey?</h2>
+            <p class="cta-lead">Begin with a conversation about your needs, questions, and goals.</p>
+          </div>
+          <button type="button" class="btn-banner-white" onclick="openModal('bookModal')">Contact us</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="wrap footer-content">
+      <div>
+        <span class="footer-brand">Vitalis Wound Care LLC</span>
+        <span>Expert home wound care across Chicago, IL</span>
+      </div>
+      <div class="footer-contact">
+        <a href="tel:7739617571" class="footer-link">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>
+          773-961-7571
+        </a>
+        <a href="mailto:admin@vitaliswoundcare.com" class="footer-link">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm8 7.3L19 7H5zm-8 5.7h16V9.3l-8 5.7-8-5.7z"/></svg>
+          admin@vitaliswoundcare.com
+        </a>
+        <span>Fax: 702-974-3559</span>
+      </div>
+      <div>
+        <span>© 2026 Vitalis Wound Care LLC</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= BOOKING & CONTACT MODAL ================= -->
+  <div class="modal-overlay" id="bookModal" role="dialog" aria-modal="true" aria-labelledby="bookModalTitle" onclick="handleBackdropClick(event, 'bookModal')">
+    <div class="modal-card">
+      <button type="button" class="modal-close-btn" onclick="closeModal('bookModal')" aria-label="Close dialog">✕</button>
+      
+      <div id="bookingFormSection">
+        <h2 class="modal-title" id="bookModalTitle">Schedule a Home Visit</h2>
+        <p class="modal-subtitle">Pick a convenient day and time. Our clinical team will reach out to confirm your Chicago home visit.</p>
+
+        <div class="quick-contact-strip">
+          <div class="quick-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>
+            <a href="tel:7739617571" style="color: inherit;">Call 773-961-7571</a>
+          </div>
+          <div class="quick-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm8 7.3L19 7H5zm-8 5.7h16V9.3l-8 5.7-8-5.7z"/></svg>
+            <span>admin@vitaliswoundcare.com</span>
+          </div>
+        </div>
+
+        <span class="step-label">1. Choose a day</span>
+        <div class="days-grid" id="daysContainer"></div>
+
+        <span class="step-label">2. Choose a time</span>
+        <div class="times-flex" id="timesContainer"></div>
+
+        <span class="step-label">3. Patient details</span>
+        <div class="form-group">
+          <label class="form-label" for="visitType">Reason for visit</label>
+          <select class="form-select" id="visitType">
+            <option>New wound consultation</option>
+            <option>Follow-up visit</option>
+            <option>Pain management</option>
+            <option>Dressing or supplies</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="patientName">Full name</label>
+          <input class="form-input" id="patientName" placeholder="e.g. Jane Doe" autocomplete="name">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="patientPhone">Phone number</label>
+          <input class="form-input" id="patientPhone" type="tel" placeholder="e.g. (773) 555-0199" autocomplete="tel">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="patientEmail">Email (optional)</label>
+          <input class="form-input" id="patientEmail" type="email" placeholder="e.g. jane@example.com" autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="patientAddress">Home address in the Chicago area</label>
+          <input class="form-input" id="patientAddress" placeholder="Street address, Chicago, IL" autocomplete="street-address">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="patientNotes">Anything we should know? (optional)</label>
+          <textarea class="form-textarea" id="patientNotes" placeholder="Medical history, specific questions, or wound details..."></textarea>
+        </div>
+
+        <p class="form-error" id="formError" role="alert"></p>
+
+        <button type="button" class="btn-submit" id="submitBookingBtn">
+          Request this home visit
+        </button>
+      </div>
+
+      <!-- Confirmation Screen -->
+      <div id="bookingDoneSection" style="display: none;">
+        <h2 class="modal-title" style="color: var(--navy-primary)">Request Ready to Send</h2>
+        <p class="modal-subtitle">Here is your appointment summary. Our clinician team will contact you promptly to finalize.</p>
+
+        <div class="booking-summary" id="bookingSummaryContent"></div>
+
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin: 20px 0;">
+          <a class="btn btn-navy" id="emailRequestBtn" href="#" style="flex: 1; min-width: 180px;">Email request</a>
+          <a class="btn btn-outline" href="tel:7739617571" style="flex: 1; min-width: 180px;">Call 773-961-7571</a>
+        </div>
+
+        <button type="button" class="btn btn-outline" id="editBookingBtn" style="width: 100%; border: none; background: #F0F4FA;">
+          Edit request details
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= ABOUT US MODAL ================= -->
+  <div class="modal-overlay" id="aboutModal" role="dialog" aria-modal="true" aria-labelledby="aboutModalTitle" onclick="handleBackdropClick(event, 'aboutModal')">
+    <div class="modal-card info-modal-card">
+      <button type="button" class="modal-close-btn" onclick="closeModal('aboutModal')" aria-label="Close dialog">✕</button>
+      <h2 class="modal-title" id="aboutModalTitle">About Vitalis Wound Care</h2>
+      <p class="modal-subtitle">Compassionate, hospital-grade wound care delivered to your home in Chicago.</p>
+
+      <p>We are a specialized team of dedicated wound care professionals committed to providing compassionate, high-quality medical and advanced wound care services to patients throughout Chicago, Illinois and surrounding communities.</p>
+      
+      <p>From comprehensive wound management and specialized therapies to patient education and preventive care, our clinicians deliver personalized treatment plans, all in the comfort of your home. Your comfort and recovery are our priorities.</p>
+
+      <h3 style="margin: 22px 0 12px; font-size: 18px; color: var(--navy-primary)">Why choose our mobile care?</h3>
+      
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-item-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+          </div>
+          <div>
+            <strong style="color: var(--navy-primary)">Expert Certified Clinicians</strong>
+            <p style="margin: 3px 0 0; font-size: 14px;">Highly trained wound care practitioners skilled in advanced debridement and regenerative skin substitutes.</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-item-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+          </div>
+          <div>
+            <strong style="color: var(--navy-primary)">Fewer Hospital Readmissions</strong>
+            <p style="margin: 3px 0 0; font-size: 14px;">Continuous at-home tracking and infection screening to prevent complications early.</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-item-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+          </div>
+          <div>
+            <strong style="color: var(--navy-primary)">Convenience & Comfort</strong>
+            <p style="margin: 3px 0 0; font-size: 14px;">No difficult commutes, transit hurdles, or waiting rooms. All care is given in your home.</p>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-navy" style="width: 100%; margin-top: 10px;" onclick="closeModal('aboutModal'); openModal('bookModal');">
+        Schedule your consultation
+      </button>
+    </div>
+  </div>
+
+  <!-- ================= OUR APPROACH MODAL ================= -->
+  <div class="modal-overlay" id="approachModal" role="dialog" aria-modal="true" aria-labelledby="approachModalTitle" onclick="handleBackdropClick(event, 'approachModal')">
+    <div class="modal-card info-modal-card">
+      <button type="button" class="modal-close-btn" onclick="closeModal('approachModal')" aria-label="Close dialog">✕</button>
+      <h2 class="modal-title" id="approachModalTitle">Our Clinical Approach</h2>
+      <p class="modal-subtitle">A structured, proven 3-phase methodology tailored to your unique recovery.</p>
+
+      <div class="feature-list">
+        <div class="feature-item" style="border-left: 4px solid var(--navy-primary);">
+          <div>
+            <span style="font-weight: 800; color: var(--navy-primary); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase;">Step 01</span>
+            <h4 style="font-size: 17px; margin: 2px 0 6px; color: var(--navy-primary);">Evaluate</h4>
+            <p style="margin: 0; font-size: 14px;">A full wound evaluation at your home, including exact photographic measurements, depth tracking, infection markers, and vascular screenings.</p>
+          </div>
+        </div>
+
+        <div class="feature-item" style="border-left: 4px solid var(--red-accent);">
+          <div>
+            <span style="font-weight: 800; color: var(--red-accent); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase;">Step 02</span>
+            <h4 style="font-size: 17px; margin: 2px 0 6px; color: var(--navy-primary);">Plan</h4>
+            <p style="margin: 0; font-size: 14px;">A personalized treatment plan integrating modern wound supplies, negative pressure, or bioengineered tissue, explained clearly to patient and family.</p>
+          </div>
+        </div>
+
+        <div class="feature-item" style="border-left: 4px solid var(--bullet-blue);">
+          <div>
+            <span style="font-weight: 800; color: var(--bullet-blue); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase;">Step 03</span>
+            <h4 style="font-size: 17px; margin: 2px 0 6px; color: var(--navy-primary);">Heal & Prevent</h4>
+            <p style="margin: 0; font-size: 14px;">Regular in-home follow-ups, continuous pain monitoring, and lifestyle guidance to accelerate tissue closure and ensure long-term wound prevention.</p>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-navy" style="width: 100%; margin-top: 10px;" onclick="closeModal('approachModal'); openModal('bookModal');">
+        Get started with Vitalis
+      </button>
+    </div>
+  </div>
+
+  <!-- ================= JAVASCRIPT LOGIC ================= -->
+  <script>
+    // Modal Helpers
+    function openModal(id) {
+      var el = document.getElementById(id);
+      if (el) {
+        el.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeModal(id) {
+      var el = document.getElementById(id);
+      if (el) {
+        el.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function handleBackdropClick(event, id) {
+      if (event.target.id === id) {
+        closeModal(id);
+      }
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        ['bookModal', 'aboutModal', 'approachModal'].forEach(closeModal);
+      }
+    });
+
+    // Booking Logic
+    (function() {
+      var selected = { date: null, time: null };
+      var weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+      function formatDate(d) {
+        return weekdays[d.getDay()] + ", " + months[d.getMonth()] + " " + d.getDate();
+      }
+
+      var daysList = [];
+      var cur = new Date();
+      cur.setHours(0, 0, 0, 0);
+
+      while (daysList.length < 12) {
+        cur = new Date(cur.getTime() + 86400000);
+        if (cur.getDay() !== 0) { // Exclude Sundays
+          daysList.push(cur);
+        }
+      }
+
+      var daysBox = document.getElementById("daysContainer");
+      if (daysBox) {
+        daysList.forEach(function(d, idx) {
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "date-chip";
+          btn.setAttribute("aria-pressed", idx === 0 ? "true" : "false");
+          btn.innerHTML = weekdays[d.getDay()] + "<b>" + d.getDate() + "</b>" + months[d.getMonth()];
+          
+          if (idx === 0) {
+            selected.date = d;
+          }
+
+          btn.onclick = function() {
+            var all = daysBox.querySelectorAll("button");
+            all.forEach(function(b) { b.setAttribute("aria-pressed", "false"); });
+            btn.setAttribute("aria-pressed", "true");
+            selected.date = d;
+          };
+          daysBox.appendChild(btn);
+        });
+      }
+
+      var timeSlots = ["9:00 AM", "10:00 AM", "11:00 AM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM"];
+      var timesBox = document.getElementById("timesContainer");
+      if (timesBox) {
+        timeSlots.forEach(function(t, idx) {
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "time-chip";
+          btn.setAttribute("aria-pressed", idx === 0 ? "true" : "false");
+          btn.textContent = t;
+
+          if (idx === 0) {
+            selected.time = t;
+          }
+
+          btn.onclick = function() {
+            var all = timesBox.querySelectorAll("button");
+            all.forEach(function(b) { b.setAttribute("aria-pressed", "false"); });
+            btn.setAttribute("aria-pressed", "true");
+            selected.time = t;
+          };
+          timesBox.appendChild(btn);
+        });
+      }
+
+      var submitBtn = document.getElementById("submitBookingBtn");
+      if (submitBtn) {
+        submitBtn.onclick = function() {
+          var name = document.getElementById("patientName").value.trim();
+          var phone = document.getElementById("patientPhone").value.trim();
+          var email = document.getElementById("patientEmail").value.trim() || "Not provided";
+          var address = document.getElementById("patientAddress").value.trim();
+          var visitType = document.getElementById("visitType").value;
+          var notes = document.getElementById("patientNotes").value.trim() || "None";
+          var errorEl = document.getElementById("formError");
+
+          if (!selected.date || !selected.time) {
+            errorEl.textContent = "Please select a preferred day and time.";
+            return;
+          }
+
+          var digits = phone.replace(/\D/g, "");
+          if (!name || digits.length < 10 || !address) {
+            errorEl.textContent = "Please provide your full name, 10-digit phone number, and Chicago address.";
+            return;
+          }
+
+          errorEl.textContent = "";
+
+          var formattedDate = formatDate(selected.date);
+          var summaryBox = document.getElementById("bookingSummaryContent");
+          summaryBox.innerHTML = `
+            <div class="summary-row"><span class="summary-label">Visit Time:</span><span class="summary-val">${formattedDate} at ${selected.time}</span></div>
+            <div class="summary-row"><span class="summary-label">Reason:</span><span class="summary-val">${visitType}</span></div>
+            <div class="summary-row"><span class="summary-label">Patient:</span><span class="summary-val">${name}</span></div>
+            <div class="summary-row"><span class="summary-label">Phone:</span><span class="summary-val">${phone}</span></div>
+            <div class="summary-row"><span class="summary-label">Address:</span><span class="summary-val">${address}</span></div>
+            <div class="summary-row"><span class="summary-label">Notes:</span><span class="summary-val">${notes}</span></div>
+          `;
+
+          var mailSubject = encodeURIComponent("Vitalis Visit Request: " + formattedDate + " (" + selected.time + ")");
+          var mailBody = encodeURIComponent(
+            "Hello Vitalis Wound Care,\n\n" +
+            "I would like to request an in-home wound care consultation with the following details:\n\n" +
+            "Preferred Date & Time: " + formattedDate + " at " + selected.time + "\n" +
+            "Reason: " + visitType + "\n" +
+            "Patient Name: " + name + "\n" +
+            "Phone: " + phone + "\n" +
+            "Email: " + email + "\n" +
+            "Chicago Address: " + address + "\n" +
+            "Notes / Symptoms: " + notes + "\n\n" +
+            "Thank you."
+          );
+
+          document.getElementById("emailRequestBtn").href = "mailto:admin@vitaliswoundcare.com?subject=" + mailSubject + "&body=" + mailBody;
+
+          document.getElementById("bookingFormSection").style.display = "none";
+          document.getElementById("bookingDoneSection").style.display = "block";
+        };
+      }
+
+      var editBtn = document.getElementById("editBookingBtn");
+      if (editBtn) {
+        editBtn.onclick = function() {
+          document.getElementById("bookingDoneSection").style.display = "none";
+          document.getElementById("bookingFormSection").style.display = "block";
+        };
+      }
+    })();
+  </script>
+</body>
+</html>
