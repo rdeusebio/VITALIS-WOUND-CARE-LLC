@@ -893,6 +893,78 @@
         align-items: flex-start;
       }
     }
+
+    /* ---------------- SCROLL REVEAL & MICRO-ANIMATIONS ---------------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal.reveal-left {
+      transform: translateX(-40px);
+    }
+
+    .reveal.reveal-right {
+      transform: translateX(40px);
+    }
+
+    .reveal.reveal-scale {
+      transform: scale(0.95) translateY(24px);
+    }
+
+    .reveal.is-revealed {
+      opacity: 1;
+      transform: translate(0) scale(1);
+    }
+
+    /* Stagger Delays */
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.22s; }
+    .delay-3 { transition-delay: 0.34s; }
+    .delay-4 { transition-delay: 0.46s; }
+
+    /* Heartbeat organic pulse animation */
+    @keyframes heartBeat {
+      0% { transform: scale(1); }
+      14% { transform: scale(1.18); }
+      28% { transform: scale(1); }
+      42% { transform: scale(1.14); }
+      70% { transform: scale(1); }
+    }
+
+    .pulse-heart {
+      display: inline-flex;
+      animation: heartBeat 2.8s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    /* Sticky Header scrolled state */
+    header {
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+    }
+
+    header.scrolled {
+      position: fixed;
+      background: rgba(246, 249, 253, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px rgba(11, 27, 107, 0.08);
+      padding: 14px 0;
+    }
+
+    /* Accessibility / reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+      .pulse-heart {
+        animation: none !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -931,15 +1003,15 @@
     <section class="hero">
       <div class="wrap hero-container">
         <div class="hero-content">
-          <div class="hero-badge">
-            <span class="hero-badge-icon">
+          <div class="hero-badge reveal delay-1">
+            <span class="hero-badge-icon pulse-heart">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
             </span>
             <span>Expert wound care for every recovery</span>
           </div>
-          <h1 class="hero-title">Healing that stays close to home.</h1>
-          <p class="hero-lead">Specialized wound care with compassionate support, clear guidance, and a care plan built around your comfort and progress.</p>
-          <div class="hero-actions">
+          <h1 class="hero-title reveal delay-2">Healing that stays close to home.</h1>
+          <p class="hero-lead reveal delay-3">Specialized wound care with compassionate support, clear guidance, and a care plan built around your comfort and progress.</p>
+          <div class="hero-actions reveal delay-4">
             <button type="button" class="btn btn-navy" onclick="openModal('bookModal')">Book a consultation</button>
             <a href="#services" class="btn btn-outline">See our services</a>
           </div>
@@ -950,10 +1022,10 @@
     <!-- ================= WHAT WE DO ================= -->
     <section class="services-section" id="services">
       <div class="wrap">
-        <div class="services-wrapper-card">
-          <div class="services-header">
+        <div class="services-wrapper-card reveal reveal-scale">
+          <div class="services-header reveal">
             <div class="section-pill">
-              <span class="pill-dot-icon">
+              <span class="pill-dot-icon pulse-heart">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="#ffffff"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
               </span>
               <span>What we do</span>
@@ -964,7 +1036,7 @@
 
           <!-- Service 1: Chronic Wound Management -->
           <div class="service-row">
-            <div class="service-card">
+            <div class="service-card reveal reveal-left delay-1">
               <div class="service-card-icon">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="#ffffff"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
               </div>
@@ -979,14 +1051,14 @@
                 <li>Offloading for diabetic foot ulcers</li>
               </ul>
             </div>
-            <div class="service-image-panel">
+            <div class="service-image-panel reveal reveal-right delay-2">
               <img src="img/chronic.jpg" alt="Chronic wound care management at home" loading="lazy">
             </div>
           </div>
 
           <!-- Service 2: Pain Management -->
           <div class="service-row reverse">
-            <div class="service-card">
+            <div class="service-card reveal reveal-right delay-2">
               <div class="service-card-icon">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="#ffffff"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
               </div>
@@ -996,14 +1068,14 @@
                 <li>Effective pain control strategies tailored to patient needs</li>
               </ul>
             </div>
-            <div class="service-image-panel">
+            <div class="service-image-panel reveal reveal-left delay-1">
               <img src="img/pain.jpg" alt="Patient pain management and recovery support" loading="lazy">
             </div>
           </div>
 
           <!-- Service 3: Assessment and Documentation -->
           <div class="service-row">
-            <div class="service-card">
+            <div class="service-card reveal reveal-left delay-1">
               <div class="service-card-icon">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="#ffffff"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
               </div>
@@ -1018,7 +1090,7 @@
                 <li>Advanced dressings</li>
               </ul>
             </div>
-            <div class="service-image-panel">
+            <div class="service-image-panel reveal reveal-right delay-2">
               <img src="img/docu.jpg" alt="Clinical assessment, wound metrics, and medical documentation" loading="lazy">
             </div>
           </div>
@@ -1030,7 +1102,7 @@
     <!-- ================= CTA BANNER ================= -->
     <section class="cta-section">
       <div class="wrap">
-        <div class="cta-banner">
+        <div class="cta-banner reveal reveal-scale">
           <div class="cta-banner-text">
             <h2 class="cta-title">Ready to start your care journey?</h2>
             <p class="cta-lead">Begin with a conversation about your needs, questions, and goals.</p>
@@ -1405,6 +1477,59 @@
           document.getElementById("bookingFormSection").style.display = "block";
         };
       }
+    })();
+
+    // Scroll Reveal & Sticky Header
+    (function() {
+      // Sticky header with blurred backdrop on scroll
+      var header = document.querySelector('header');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 40) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }, { passive: true });
+
+      // Intersection Observer for smooth element reveals
+      var reveals = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries, obs) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, {
+          rootMargin: '0px 0px -40px 0px',
+          threshold: 0.12
+        });
+
+        reveals.forEach(function(el) {
+          observer.observe(el);
+        });
+      } else {
+        // Fallback for older browsers
+        reveals.forEach(function(el) {
+          el.classList.add('is-revealed');
+        });
+      }
+
+      // Automatically trigger hero elements on initial load
+      window.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+          document.querySelectorAll('.hero .reveal').forEach(function(el) {
+            el.classList.add('is-revealed');
+          });
+        }, 100);
+      });
+      // Fallback timeout in case DOMContentLoaded already fired
+      setTimeout(function() {
+        document.querySelectorAll('.hero .reveal').forEach(function(el) {
+          el.classList.add('is-revealed');
+        });
+      }, 300);
     })();
   </script>
 </body>
